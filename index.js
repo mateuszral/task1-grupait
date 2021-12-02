@@ -2,7 +2,16 @@ const generateButton = document.querySelector('.generateButton');
 const oddNumbersDiv = document.querySelector('.oddNumbers');
 const evenNumbersDiv = document.querySelector('.evenNumbers');
 
+const removeAllChildren = (element) => {
+  while (element.childElementCount !== 1) {
+    element.removeChild(element.lastChild);
+  }
+};
+
 generateButton.addEventListener('click', () => {
+  removeAllChildren(oddNumbersDiv);
+  removeAllChildren(evenNumbersDiv);
+
   const randomNumbers = [];
   for (let i = 0; i < 20; i++) {
     randomNumbers.push(Math.floor(Math.random() * 100) + 1);
